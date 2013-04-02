@@ -7,12 +7,9 @@ rescue Bundler::BundlerError => e
   $stderr.puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
-require 'test/unit'
-require 'shoulda'
+
+ENV['RACK_ENV'] ||= 'test'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'sendicate-ruby'
-
-class Test::Unit::TestCase
-end
+require 'sendicate'
