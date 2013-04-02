@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "lib/sendicate/import.rb",
     "lib/sendicate/list.rb",
     "lib/sendicate/request.rb",
+    "sendicate.gemspec",
     "spec/sendicate/import_spec.rb",
     "spec/sendicate/list_spec.rb",
     "spec/sendicate_spec.rb",
