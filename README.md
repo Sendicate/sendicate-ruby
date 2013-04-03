@@ -21,6 +21,9 @@ Configure your API token. You can either set the environment variable SENDICATE_
     # or
     Sendicate.api_token = 'YOUR_API_TOKEN'
 
+
+### Lists
+
 Create a new list:
 
     list = Sendicate::List.new(title: 'Life-changing newsletter')
@@ -55,6 +58,18 @@ Add a subcriber to a list:
       puts import.error_messages
     end
 
+
+### Subscribers
+
+Change a subscriber's email address:
+
+    subscriber = Subscriber.find('user@example.com')
+    subscriber.email = 'differentuser@example.com'
+    subscriber.save
+
+Unsubscribe a subscriber:
+
+    Subscriber.unsubscribe('user@example.com')
 
 ## Contributing to sendicate-ruby
  

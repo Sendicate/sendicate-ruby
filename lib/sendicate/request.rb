@@ -32,11 +32,11 @@ module Sendicate
       unless success?
         case response.code
         when 400
-          raise Sendicate::BadRequest
+          raise BadRequest
         when 401
-          raise Sendicate::Unauthorized
+          raise Unauthorized
         when 404
-          raise Sendicate::ResourceNotFound
+          raise ResourceNotFound
         end
       end
     end

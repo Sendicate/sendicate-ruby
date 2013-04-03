@@ -8,7 +8,6 @@ describe Sendicate::List do
       list = Sendicate::List.new(title: "Test list")
       list.save.should be_true
       list.id.should_not be_nil
-      @list_id = list.id
     end
     
     it "should not create list if invalid" do
@@ -41,21 +40,22 @@ describe Sendicate::List do
     end
     
     it "should not find invalid list" do
-      lambda { Sendicate::List.find(@list_id) }.should raise_error(Sendicate::ResourceNotFound)
+      lambda { Sendicate::List.find('bogus') }.should raise_error(Sendicate::ResourceNotFound)
     end
   end
   
   describe "save" do
-    let(:list_id) { Sendicate::List.all.select{|l| l.title == 'Test list'}.first.id }
   
     it "should update list" do
-      list = Sendicate::List.find(list_id)
+      list = Sendicate::List.new(title: "Test list")
+      list.save
       list.title = "Test list updated"
       list.save.should be_true
     end
     
     it "should not update list if invalid" do
-      list = Sendicate::List.find(list_id)
+      list = Sendicate::List.new(title: "Test list")
+      list.save
       list.title = ""
       list.save.should be_false
     end
