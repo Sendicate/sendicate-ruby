@@ -7,6 +7,8 @@ module Sendicate
   autoload :Import, 'sendicate/import'
   autoload :List, 'sendicate/list'
   autoload :Request, 'sendicate/request'
+  autoload :Resource, 'sendicate/resource'
+  autoload :Subscriber, 'sendicate/subscriber'
   
   class << self
     attr_accessor :api_token

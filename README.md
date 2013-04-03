@@ -2,6 +2,8 @@
 
 This gem is a wrapper for the [Sendicate API](https://github.com/Sendicate/sendicate-docs/tree/master/api).
 
+Find out more about Sendicate at [https://www.sendicate.net/](https://www.sendicate.net/).
+
 
 ## Installation
 
@@ -10,7 +12,7 @@ This gem is a wrapper for the [Sendicate API](https://github.com/Sendicate/sendi
 
 ## Requirements
 
-You will need a Sendicate account and [API token](https://www.sendicate.net/account/edit).
+You will need a Sendicate account and [API token](https://www.sendicate.net/account/edit).  The token can be found by logging into your Sendicate account and going to Manage, then Account, then scrolling down to API Access.
 
 
 ## Usage
@@ -21,9 +23,12 @@ Configure your API token. You can either set the environment variable SENDICATE_
     # or
     Sendicate.api_token = 'YOUR_API_TOKEN'
 
+
+### Lists
+
 Create a new list:
 
-    list = Sendicate::List.new(title: 'Life-changing newsletter')
+    list = Sendicate::List.new(title: 'Life-changing newsletter list')
     list.save
     
 View all lists:
@@ -32,7 +37,7 @@ View all lists:
 
 Update a list:
 
-    list.title = 'not spam'
+    list.title = 'new list'
     list.save
 
 Destroy a list:
@@ -55,6 +60,18 @@ Add a subcriber to a list:
       puts import.error_messages
     end
 
+
+### Subscribers
+
+Change a subscriber's email address:
+
+    subscriber = Subscriber.find('user@example.com')
+    subscriber.email = 'differentuser@example.com'
+    subscriber.save
+
+Unsubscribe a subscriber:
+
+    Subscriber.unsubscribe('user@example.com')
 
 ## Contributing to sendicate-ruby
  

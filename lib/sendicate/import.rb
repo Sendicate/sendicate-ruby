@@ -1,9 +1,6 @@
 module Sendicate
   
   class Import
-    include HTTParty
-    base_uri 'https://api.sendicate.net/v1'
-    headers 'Accept' => 'application/json', 'Content-Type' => 'application/json', "Authorization" => "token #{Sendicate.api_token}"
     
     attr_reader :list_id, :data, :response, :errors
     
@@ -13,7 +10,7 @@ module Sendicate
     end
     
     def save
-      @response = Sendicate::Request.post("/lists/#{list_id}/subscribers", body: MultiJson.dump(data))
+      @response = Request.post("/lists/#{list_id}/subscribers", body: MultiJson.dump(data))
       success?
     end
     
