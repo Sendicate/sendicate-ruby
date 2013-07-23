@@ -1,3 +1,5 @@
+require 'cgi'
+
 module Sendicate
   
   class Resource
@@ -106,7 +108,11 @@ module Sendicate
     end
     
     def to_param
-      id
+      if id.is_a?(String)
+        CGI::escape(id)
+      else
+        id
+      end
     end
     
     def to_json
