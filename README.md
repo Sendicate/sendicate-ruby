@@ -65,13 +65,17 @@ Add a subcriber to a list:
 
 Change a subscriber's email address:
 
-    subscriber = Subscriber.find('user@example.com')
+    subscriber = Sendicate::Subscriber.find('user@example.com')
     subscriber.email = 'differentuser@example.com'
     subscriber.save
 
 Unsubscribe a subscriber:
 
-    Subscriber.unsubscribe('user@example.com')
+    Sendicate::Subscriber.unsubscribe('user@example.com')
+
+Check if a subscriber belongs to a list:
+
+    subscriber.list_ids.include?(LIST_ID)
 
 ## Contributing to sendicate-ruby
  
