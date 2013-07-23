@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "sendicate"
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Evan Whalen"]
-  s.date = "2013-04-03"
+  s.date = "2013-07-23"
   s.description = "Use this Sendicate API wrapper to subscribe your users to your Sendicate mailing lists."
   s.email = "evanwhalendev@gmail.com"
   s.extra_rdoc_files = [
