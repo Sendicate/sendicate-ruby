@@ -55,7 +55,12 @@ module Sendicate
       end
       
       def member_path(param)
-        [@base_path, param].join("/")
+        escaped_param = if param.is_a?(String)
+          CGI::escape(param)
+        else
+          param
+        end
+        [@base_path, escaped_param].join("/")
       end
       
       def get(*args)
